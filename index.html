@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MY PORTOFOLIO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00f2ff;
+      --secondary: #bc13fe;
+      --bg-dark: #020205;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(0, 242, 255, 0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: #fff;
+      font-family: 'Rajdhani', sans-serif;
+      overflow-x: hidden;
+      /* Futuristic Grid Background */
+      background-image: 
+        linear-gradient(rgba(188, 19, 254, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(188, 19, 254, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    /* Moving background light */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -10%; left: -10%;
+      width: 120%; height: 120%;
+      background: radial-gradient(circle at center, rgba(0, 242, 255, 0.05) 0%, transparent 70%);
+      z-index: -1;
+      animation: floatBG 20s infinite alternate;
+    }
+
+    @keyframes floatBG {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-5%, -5%); }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Hero Section - Responsive */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .hero-img {
+      position: absolute;
+      right: -10%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60%;
+      opacity: 0.3;
+      z-index: -1;
+      mask-image: linear-gradient(to left, black, transparent);
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      line-height: 1;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .glow-text {
+      color: var(--primary);
+      text-shadow: 0 0 20px rgba(0, 242, 255, 0.8);
+    }
+
+    /* Responsive Grid */
+    .section { margin: 100px 0; }
+    
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-bottom: 40px;
+      letter-spacing: 5px;
+      border-bottom: 2px solid var(--secondary);
+      display: inline-block;
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    /* Futuristic Card */
+    .cyber-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 0 30px 0 30px;
+      overflow: hidden;
+      position: relative;
+      transition: 0.5s;
+      backdrop-filter: blur(10px);
+    }
+
+    .cyber-card:hover {
+      transform: scale(1.02);
+      border-color: var(--primary);
+      box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: grayscale(50%) brightness(0.7);
+      transition: 0.5s;
+    }
+
+    .cyber-card:hover .card-img {
+      filter: grayscale(0%) brightness(1);
+    }
+
+    .card-body { padding: 25px; }
+
+    .card-body h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      border: 1px solid var(--primary);
+      padding: 2px 8px;
+      margin-right: 5px;
+      text-transform: uppercase;
+    }
+
+    /* Blog List */
+    .blog-section {
+      background: rgba(188, 19, 254, 0.05);
+      padding: 40px;
+      border-radius: 20px;
+    }
+
+    .blog-entry {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .blog-entry:hover { color: var(--primary); cursor: pointer; }
+
+    /* Responsive Fixes */
+    @media (max-width: 768px) {
+      .hero-img { display: none; }
+      .hero { align-items: center; text-align: center; min-height: 50vh; }
+      .section { margin: 50px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header class="hero">
+      <img src="https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=800" class="hero-img" alt="AI Robot">
+      <p style="letter-spacing: 5px; color: var(--secondary);">ABOUT ME</p>
+      <h1>DIGITAL <span class="glow-text">ENGINEER</span></h1>
+      <p style="max-width: 90%; font-size: 1.2rem; color: #ccc;">I am an IT Engineer with over 10 years of experience in the technology industry. Throughout my career, I have worked on diverse projects and continuously honed my technical skills. Currently, my focus is on exploring new technologies and expanding my knowledge, with a particular passion for <b>AI</b> and <b>Game Development</b>. Beyond my professional life, I believe in keeping a balanced lifestyle. I enjoy <b>Dancing</b> and <b>Gaming</b> as ways to relax and recharge, and I often challenge myself by <b>Learning New Languages</b> to keep my mind sharp. I am driven by curiosity, creativity, and the thrill of discovering something new every day.</p>
+      <br>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">01_AI_NEURAL_LINK</h2>
+      <div class="grid-layout">
+        <div class="cyber-card">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=500" class="card-img">
+          <div class="card-body">
+            <h3>n8n Automation</h3>
+            <p>Complex backend workflows and API orchestration.</p>
+            <div style="margin-top: 15px;"><span class="tag">n8n</span><span class="tag">LLM</span></div>
+          </div>
+        </div>
+        <div class="cyber-card">
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=500" class="card-img">
+          <div class="card-body">
+            <h3>LLM Agent Architecture</h3>
+            <p>RAG-based systems for intelligent knowledge retrieval.</p>
+            <div style="margin-top: 15px;"><span class="tag">OpenAI</span><span class="tag">Langchain</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">02_VIRTUAL_CONSTRUCT</h2>
+      <div class="grid-layout">
+        <div class="cyber-card">
+          <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&w=500" class="card-img">
+          <div class="card-body">
+            <h3>UE5 Environment</h3>
+            <p>MetaHuman Design and Cinematic Sequencing.</p>
+            <div style="margin-top: 15px;"><span class="tag">Unreal Engine</span></div>
+          </div>
+        </div>
+        <div class="cyber-card">
+          <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?auto=format&fit=crop&w=500" class="card-img">
+          <div class="card-body">
+            <h3>Blender Synthesis</h3>
+            <p>Hard-surface modeling and procedural texturing for game assets.</p>
+            <div style="margin-top: 15px;"><span class="tag">3D Modeling</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">03_KINETIC_FLOW</h2>
+      <div class="grid-layout">
+        <div class="cyber-card">
+          <img src="https://images.unsplash.com/photo-1535525153412-5a42439a210d?auto=format&fit=crop&w=500" class="card-img">
+          <div class="card-body">
+            <h3>Urban Mastery</h3>
+            <p>K-Pop, HipHop, and Jazzfunk choreography performance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">04_COMBAT_LOGS</h2>
+      <div class="grid-layout">
+        <div class="cyber-card">
+          <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Esports Arena">
+          <div class="card-body">
+            <h3>Achievement: Battleground</h3>
+            <p>Tactical excellence and squad leadership in high-stakes MOBA & Battle Royale simulations.</p>
+            <div style="margin-top: 15px;">
+              <span class="tag">Strategy</span>
+              <span class="tag">Competitive</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cyber-card">
+          <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Dark RPG Atmosphere">
+          <div class="card-body">
+            <h3>Achievement: Dark Realms</h3>
+            <p>Completionist mastery of Psychological Horror and deep Lore-heavy RPG narratives.</p>
+            <div style="margin-top: 15px;">
+              <span class="tag">Lore</span>
+              <span class="tag">Immersive</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blog-section">
+      <h2 class="section-title">COMM_LOGS</h2>
+      <div class="blog-entry">
+        <div>
+          <p style="color: var(--primary);">[2026.01.21]</p>
+          <h4>Synchronizing n8n with Unreal Engine 5 via Webhooks</h4>
+        </div>
+        <span>READ_MORE_</span>
+      </div>
+      <div class="blog-entry">
+        <div>
+          <p style="color: var(--primary);">[2026.01.10]</p>
+          <h4>The Geometry of Motion: Jazzfunk Meets Math</h4>
+        </div>
+        <span>READ_MORE_</span>
+      </div>
+    </section>
+
+    <footer style="text-align: center; padding: 50px; opacity: 0.5; font-size: 0.8rem; letter-spacing: 3px;">
+      // DESIGNED BY TIKA // VERSION 1.0.0 // NO_USER_LEFT_BEHIND
+    </footer>
+  </div>
+
+</body>
+</html>
